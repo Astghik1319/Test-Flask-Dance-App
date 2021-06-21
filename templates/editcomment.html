@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+     crossorigin="anonymous">
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+     crossorigin="anonymous"></script>
+     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+  <title>Edycja wpisu</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light  ">
+  <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
+    <ul class="navbar-nav mr-auto ">
+      <li class="nav-item active"><a href="#" class="nav-link">Nawigacja</a></li>
+      <li class="nav-item">
+        <a href="{{ url_for('aboutme') }}" class="nav-link">About me</a>
+      </li>
+      <li class="nav-item"><a href="{{ url_for('aboutme') }}" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="{{ url_for('gallery') }}" class="nav-link">Gallery</a></li>
+      <li class="nav-item"><a href="{{ url_for('contact') }}" class="nav-link">Contact</a></li>
+      <li class="nav-item"><a href="{{url_for('guestbook')}}" class="nav-link">Guestbook</a></li>
+    </ul>
+  </nav>
+
+ <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"> 
+    <h1>Edytowanie wpisu z Księgi Gości</h1>
+    <form style="margin-left: 0px; margin-top: 20px" action="/update" method="POST">
+        <div>
+            <input name="name" type="text" value="Pseudonim">
+        </div>
+        <div style="margin-top: 20px; margin-bottom: 20px">
+            <textarea name="text" rows="10" cols="50">komentarz</textarea>
+        </div>
+        <div>
+            <input type="hidden" name="id" value="{{id}}">
+            <input type="submit" class="btn btn-success" value="Edytuj">
+        </div>
+    </form>
+    </div>
